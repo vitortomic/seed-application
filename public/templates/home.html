@@ -1,0 +1,50 @@
+ <style>
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+  }
+</style>
+ <md-content layout-padding>
+    <div>
+      <form name="userForm">
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Ime</label>
+            <input ng-model="user.firstName">
+          </md-input-container>
+          <br/>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Ime</label>
+            <input ng-model="user.lastName">
+          </md-input-container>
+          <md-input-container>
+            <label>Dan rodjenjaa</label>
+            <md-datepicker ng-model="user.dateOfBirth"></md-datepicker>
+          </md-input-container>
+        </div>
+        <md-button class="md-raised" ng-click="ispisi()">Ispisi pozdrav</md-button>
+      </form>
+    </div>
+
+    <table>
+        <tr>
+           <th>ime</th>
+           <th>email</th>
+           <th>telefon</th>
+        </tr>
+            <tr ng-repeat="user in users">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+            </tr>
+    </table>
+    <md-button class="md-raised" ng-click="pop()">Izbaci prvog</md-button>
+  <md-button class="md-raised" ng-click="oniKojimaJeIdVeciOd5()">Izbaci prvog</md-button>
+ 
+</md-content>
