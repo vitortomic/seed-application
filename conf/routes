@@ -25,3 +25,7 @@ POST    /person                     controllers.PersonController.addPerson()
 GET     /persons                    controllers.PersonController.getPersons
 
 GET 	/studenti					controllers.StudentController.vratiSveStudente()
+
+
+#auth
+POST	/register					controllers.AuthController.registerNewUser()
