@@ -38,7 +38,6 @@ public class AuthenticationService {
     		if(users.get(0).email.equals(email)) return createToken(users.get(0));
     	}
     	return null;
-    	
     }
     
     public AuthUser createToken(AuthUser user){
@@ -52,7 +51,7 @@ public class AuthenticationService {
     	return jpaApi.em().merge(user);
     }
     
-    public boolean authenticate(Long id, String token){
+    public boolean authenticate(Long userId, String token){
     	return false;
     }
     
