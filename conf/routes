@@ -29,3 +29,7 @@ GET 	/studenti					controllers.StudentController.vratiSveStudente()
 
 #auth
 POST	/register					controllers.AuthController.registerNewUser()
+POST	/login						controllers.AuthController.login()
+
+#users
+GET     /users						controllers.UserController.getAllUsers()

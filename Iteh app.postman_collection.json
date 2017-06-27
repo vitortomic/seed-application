@@ -1,0 +1,74 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Iteh app",
+		"_postman_id": "9d27ab67-6ac3-5107-e101-9ea2d83d4afb",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"url": "http://{{domain}}:{{port}}/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"vitortomic2@gmail.com\",\n\t\"password\": \"1234\",\n\t\"firstName\": \"vitor\",\n\t\"lastName\": \"tomic\",\n\t\"userType\": \"ADMINSTRATOR\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"url": "http://{{domain}}:{{port}}/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"vitortomic2@gmail.com\",\n\t\"password\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "list users",
+			"request": {
+				"url": "http://{{domain}}:{{port}}/users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "6a7b8878-9836-4018-bffc-7ec15179e7fb",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

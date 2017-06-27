@@ -12,3 +12,4 @@ libraryDependencies += "org.hibernate" % "hibernate-core" % "5.2.5.Final"
 libraryDependencies += cache
 libraryDependencies += javaWs
 libraryDependencies += "org.mockito" % "mockito-core" % "2.1.0"
+libraryDependencies += "org.mindrot" % "jbcrypt" % "0.3m"
