@@ -93,5 +93,11 @@ public class AuthenticationService {
     	}
     }
     
+    public AuthToken invalidateToken(String token){
+    	AuthToken authToken = findByToken(token);
+    	authToken.isValid = false;
+    	return authToken;
+    }
+    
    
 }

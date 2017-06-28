@@ -11,6 +11,10 @@ import play.mvc.Result;
 import play.mvc.Results;
 import services.AuthenticationService;
 
+/**
+ * @author Vitor 2
+ *
+ */
 public class SecureAction extends play.mvc.Action.Simple{
 
 	@Inject

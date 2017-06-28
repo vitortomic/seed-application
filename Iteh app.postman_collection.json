@@ -69,6 +69,23 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"url": "http://{{domain}}:{{port}}/logout",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "38235fd6-995e-410e-9652-352cc6723ad4",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }

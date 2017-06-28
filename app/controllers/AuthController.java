@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.inject.Inject;
 
+import actions.SecureAction;
+import models.AuthToken;
 import models.AuthUser;
 import models.User;
 import play.Logger;
@@ -14,6 +16,7 @@ import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.With;
 import services.AuthenticationService;
 import services.UserService;
 
@@ -67,5 +70,13 @@ public class AuthController extends Controller {
 		token.put("expirationTime", user.authToken.tokenExpirationTime.getTime());
 		
 		return ok(token);
+	}
+	
+	@With(SecureAction.class)
+	@Transactional
+	public Result logout(){
+		String token = request().headers().get("Authorization")[0];
+		AuthToken authToken = authService.invalidateToken(token);
+		return ok(Json.toJson(authToken));
 	}
 }
