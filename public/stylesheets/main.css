@@ -1,10 +1,10 @@
 .appBody{
 	margin:auto;
 	background:white;
-	width: 50%;
+	width: 80%;
 	margin-top:100px;
 	margin-bottom:50px;
 }
 .page{
-	background: grey;
+	background: url("/assets/images/background-01.png");
 }

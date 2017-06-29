@@ -1,0 +1,20 @@
+<md-content layout-padding>
+<form>
+	<div layout="row">
+		<div flex="25"></div>
+		<div flex="50" layout-margin layout="column">
+			<span style="margin-left:35%"><h1>Logovanje</h1></span>
+		    <md-input-container>
+		        <label>Email</label>
+		        <input ng-model="email" type="email" required>
+		    </md-input-container>
+		    <md-input-container>
+		        <label>Sifra</label>
+		        <input ng-model="password" type="password" required>
+		    </md-input-container>
+		    <md-button type="submit" class="md-raised md-primary" ng-click="login()">Uloguj se</md-button>
+			<span style="color:blue;cursor:pointer" ng-click="goToRegister()">Idi na registraciju</span>
+	    </div>
+    </div>
+</form>
+</md-content>

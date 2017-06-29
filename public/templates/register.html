@@ -1,0 +1,38 @@
+<md-content layout-padding>
+<form>
+	<div layout="row">
+		<div flex="25"></div>
+		<div flex="50" layout-margin layout="column">
+			<span style="margin-left:35%"><h1>Registracija</h1></span>
+		
+			<md-input-container>
+		        <label>Ime</label>
+		        <input ng-model="user.firstName" required> 
+		      </md-input-container>
+			<md-input-container>
+		        <label>Prezime</label>
+		        <input ng-model="user.lastName" required>
+		    </md-input-container>
+		    <md-input-container>
+		        <label>Email</label>
+		        <input ng-model="user.email" type="email" required>
+		    </md-input-container>
+		    <md-input-container>
+		        <label>Sifra</label>
+		        <input ng-model="user.password" type="password" required>
+		    </md-input-container>
+		    <md-input-container>
+		        <label>Ponovi sifru</label>
+		        <input ng-model="repeatPassword" type="password" required>
+		    </md-input-container>
+		    <md-select ng-model="user.userType" placeholder="Izaberite tip korisnika" class="md-no-underline">
+          		<md-option value="ADMINSTRATOR">Administrator</md-option>
+          		<md-option value="STUDENT">Student</md-option>
+         		<md-option value="PROFESOR">Profesor</md-option>
+        	</md-select>
+		    <md-button type="submit" class="md-raised md-primary" ng-click="register($event)">Registruj se</md-button>
+			<span style="color:blue;cursor:pointer" ng-click="goToLogin()">Uloguj se</span>
+	    </div>
+    </div>
+</form>
+</md-content>

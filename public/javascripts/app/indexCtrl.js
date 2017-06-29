@@ -1,17 +1,16 @@
-app.controller('indexCtrl', function ($rootScope,$scope, $location, $http) {
+app.controller('indexCtrl', function ($rootScope,$scope, $location, $http, usersService, $location) {
 	
-	$scope.studenti;
+	$scope.users = [];
 	
-	$http.get('/studenti').then(function(response){
-		$scope.studenti = response.data;
-		console.log($scope.studenti);
-	}, function(error){
-		console.log(error);
+	usersService.listUsers().then(function(response){
+		$scope.users = response.data;
 	});
-});
-
-http.get('/stagod').then(function(response){
-	response.data
+	
+	$scope.logout = function(){
+		usersService.logout();
+		$location.path("/login");
+	}
+	
 });
 
 

@@ -1,10 +1,35 @@
-<div ng-repeat="student in studenti" style="margin-bottom:30px">
-	Ime: {{student.ime}} <br>
-	Prezime: {{student.prezime}} <br>
-	Godine: {{student.godine}} <br>
-	
-	<div ng-repeat="telefon in student.telefoni">
-		telefon: {{telefon.brojTelefona}}
-	</div>
-	<hr>
-</div>
+ <style>
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+  }
+</style>
+<md-content layout-padding>
+    <table>
+        <tr>
+           <th>ime</th>
+           <th>email</th>
+           <th>tip</th>
+        </tr>
+            <tr ng-repeat="user in users | filter:search">
+                <td>{{user.firstName}} {{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.userType}}</td>
+            </tr>
+    </table>
+    <md-input-container>
+		        <label>Pretrazi</label>
+		        <input ng-model="search">
+	</md-input-container>
+	<div>
+ 	 <md-button ng-click="logout()" class="md-warn md-fab md-fab-bottom-right">
+        Izloguj
+     </md-button>
+     </div>
+</md-content>

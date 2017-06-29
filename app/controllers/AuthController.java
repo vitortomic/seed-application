@@ -43,7 +43,7 @@ public class AuthController extends Controller {
 		String firstName = json.get("firstName").asText();
 		String lastName = json.get("lastName").asText();
 		String type = json.get("userType").asText();
-		if(email == null || email.length()<4 || password == null || password.length() <4)return badRequest();
+		if(email == null || email.length()<4 || password == null || password.length() <4)return badRequest("invalid data");
 		try{
 			AuthUser auth = authService.registerAuthUser(email, password);
 			User newUser = userService.createUser(firstName, lastName, email, type);
