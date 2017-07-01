@@ -95,6 +95,14 @@ app.factory('prijaveService', ['$http', function($http){
 			return $http.put("/update-prijavu", prijava).then(function(response){
 				return response.data;
 			})
+		},
+		deletePrijavu: function(prijava){
+			return $http({
+				url: '/obrisi-prijavu/' + prijava.id ,
+				method: 'DELETE',
+			}).then(function(response){
+				
+			})
 		}
 		
 	}

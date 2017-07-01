@@ -9,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 /**
  * @author Vitor 2
  *
@@ -32,4 +30,6 @@ public class PrijavaIspita {
 	public Student student;
 	
 	public Integer ocena;
+	
+	public Boolean deleted = false;
 }

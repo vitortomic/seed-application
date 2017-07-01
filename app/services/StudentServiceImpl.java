@@ -18,8 +18,10 @@ public class StudentServiceImpl implements StudentService {
 	public List<Student> vrati() {
 		List<Student> studenti = (List<Student>) jpaApi.em().createQuery("select s from Student s").getResultList();
 		studenti.forEach(s -> {
-			s.prosek = s.prijavljeniIspiti.stream().mapToDouble(ispit -> ispit.ocena != null ? ispit.ocena : 0).average().orElse(0);
-			s.esp = s.prijavljeniIspiti.stream().filter(prijava -> prijava.ocena != null && prijava.ocena >= 6)
+			s.prosek = s.prijavljeniIspiti.stream().filter(prijava -> !prijava.deleted && prijava.ocena > 5)
+					.mapToDouble(ispit -> ispit.ocena != null ? ispit.ocena : 0).average().orElse(0);
+			s.esp = s.prijavljeniIspiti.stream()
+					.filter(prijava -> prijava.ocena != null && prijava.ocena >= 6 && !prijava.deleted)
 					.map(prijava -> prijava.ispit).mapToInt(ispit -> ispit.ispit.espBodovi).sum();
 		});
 		return studenti;	

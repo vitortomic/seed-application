@@ -25,8 +25,32 @@ app.controller('prijaveCtrl', function($scope, prijaveService, $mdDialog){
 	    	
 	    });
 	  };
+	  
+	  $scope.obrisiPrijavu = function(ev, prijava) {
+		    // Appending dialog to document.body to cover sidenav in docs app
+		    var confirm = $mdDialog.confirm()
+		          .title('Da li ste sigurni da zelite da obrisete prijavu?')
+		          .ariaLabel('Lucky day')
+		          .targetEvent(ev)
+		          .ok('Obrisi')
+		          .cancel('Odustani');
+
+		    $mdDialog.show(confirm).then(function() {
+		    	obrisiPrijavu(prijava);
+		    }, function() {
+		     
+		    });
+		  };
 	 
 	  var apdejtujPrijavu = function(prijava){
 		  prijaveService.updatePrijavu(prijava);
+	  }
+	  
+	  var obrisiPrijavu = function(prijava){
+		  prijaveService.deletePrijavu(prijava).then(function(response){
+			  $scope.prijave = $scope.prijave.filter(function(element){
+				  return !angular.equals(prijava, element);
+			  })
+		  });
 	  }
 });

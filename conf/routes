@@ -38,3 +38,4 @@ GET     /users						controllers.UserController.getAllUsers()
 #prijave
 GET		/prijave					controllers.PrijavaIspitaController.vratiPrijave()
 PUT		/update-prijavu				controllers.PrijavaIspitaController.updejtujPrijavu()
+DELETE	/obrisi-prijavu/:id			controllers.PrijavaIspitaController.obrisiPrijavu(id: Long)

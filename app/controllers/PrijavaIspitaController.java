@@ -41,7 +41,8 @@ public class PrijavaIspitaController extends Controller {
 	
 	@With(SecureAction.class)
 	@Transactional
-	public Result obrisiPrijavu(){
+	public Result obrisiPrijavu(Long id){
+		prijavaService.obrisiPrijavu(id);
 		return ok();
 	}
 }
