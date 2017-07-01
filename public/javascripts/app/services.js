@@ -83,6 +83,23 @@ app.factory('usersService', ['$http', function($http){
 	}
 }]);
 
+app.factory('prijaveService', ['$http', function($http){
+	return {
+		
+		listPrijave: function(){
+			return $http.get("/prijave").then(function(response){
+				return response.data;
+			});
+		},
+		updatePrijavu: function(prijava){
+			return $http.put("/update-prijavu", prijava).then(function(response){
+				return response.data;
+			})
+		}
+		
+	}
+}]);
+
 
 app.factory('authHttpResponseInterceptor',['$q','$location',function($q,$location) {
     var getRedirectLink = function(){

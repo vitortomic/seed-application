@@ -9,7 +9,11 @@ app.controller('indexCtrl', function ($rootScope,$scope, $location, $http, users
 	$scope.logout = function(){
 		usersService.logout();
 		$location.path("/login");
-	}
+	};
+	
+	$http.get('/studenti').then(function(response){
+		$scope.students = response.data;
+	})
 	
 });
 

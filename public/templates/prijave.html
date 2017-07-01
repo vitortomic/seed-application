@@ -1,0 +1,41 @@
+ <style>
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+  }
+</style>
+<md-content layout-padding>
+  	<div style="margin-left:16%">
+  	<h2>Prijave ispita</h2>
+ 	 <md-card flex="80" ng-repeat="prijava in prijave" md-theme="{{ false ? 'dark-blue' : 'default' }}"
+ 	 	 md-theme-watch>
+       <md-card-title>
+         <md-card-title-text>
+           <span class="md-headline"><b>Student:</b> {{prijava.student.ime}} {{prijava.student.prezime}}</span>
+           <span class="md-subhead"><b>Ispit:</b> {{prijava.ispit.ispit.naziv}}</span>
+           <span class="md-subhead"><b>Sifra ispita:</b> {{prijava.ispit.ispit.sifra}}</span>
+           <span class="md-subhead"><b>Katedra:</b> {{prijava.ispit.ispit.katedra.naziv}}</span>
+           <span class="md-subhead"><b>Rok:</b> {{prijava.ispit.rok}}</span>
+           <span class="md-subhead"><b>Datum ispita:</b> {{prijava.ispit.datum | date}}</span>
+           <span class="md-subhead"><b>Ocena:</b> {{prijava.ocena}}</span>
+         </md-card-title-text>
+         <md-card-title-media>
+           <div class="md-media-lg card-media"></div>
+         </md-card-title-media>
+       </md-card-title>
+       <md-card-actions layout="row" layout-align="end center">
+         <md-button class="md-raised md-primary" ng-show="!prijava.ocena" 
+         	ng-click="upisiOcenu($event, prijava)">Upisi ocenu</md-button>
+         <md-button class="md-raised md-primary" ng-show="prijava.ocena"
+            ng-click="upisiOcenu($event, prijava)">Izmeni ocenu</md-button>
+         <md-button class="md-raised" ng-click="izbrisiPrijavu($event)">Izbrsi prijavu</md-button>
+       </md-card-actions>
+     </md-card>
+   </div>
+</md-content>

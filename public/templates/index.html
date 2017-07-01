@@ -12,6 +12,7 @@
 </style>
 <md-content layout-padding>
     <table>
+    	<h2>Profesori</h2>
         <tr>
            <th>ime</th>
            <th>email</th>
@@ -23,10 +24,27 @@
                 <td>{{user.userType}}</td>
             </tr>
     </table>
+    <table>
+    	<h2>Studenti</h2>
+        <tr>
+           <th>ime</th>
+           <th>godina upisa</th>
+           <th>prosek</th>
+           <th>esp</th>
+        </tr>
+            <tr ng-repeat="student in students | filter:searchStudents">
+                <td>{{student.ime}} {{student.prezime}}</td>
+                <td>{{student.godine}}</td>
+                <td>{{student.prosek}}</td>
+                <td>{{student.esp}}</td>
+            </tr>
+    </table>
     <md-input-container>
 		        <label>Pretrazi</label>
-		        <input ng-model="search">
+		        <input ng-model="searchStudents">
 	</md-input-container>
+	<br>
+	<md-button class="md-raised md-primary" href="#!/prijave">Pregled prijava ispita</md-button>
 	<div>
  	 <md-button ng-click="logout()" class="md-warn md-fab md-fab-bottom-right">
         Izloguj

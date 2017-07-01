@@ -9,7 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Student {
@@ -22,10 +24,13 @@ public class Student {
 	public String prezime;
 	public Integer godine;
 	
-	@OneToMany(fetch=FetchType.EAGER)
-	public List<Telefon> telefoni;
+	@JsonIgnore
+	@ManyToMany(fetch=FetchType.EAGER)
+	public List<PrijavaIspita> prijavljeniIspiti;
 	
-	@ManyToMany
-	public List<Ispit> ispiti;
+	@Transient
+	public Double prosek;
+	@Transient
+	public Integer esp;
 
 }

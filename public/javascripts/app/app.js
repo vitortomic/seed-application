@@ -35,10 +35,23 @@ app.config(
 	     		templateUrl : 'assets/templates/login.html',
 	     		controller: 'loginCtrl'
 	     	})
+	     	.when('/prijave',{
+	     		templateUrl : 'assets/templates/prijave.html',
+	     		controller: 'prijaveCtrl'
+	     	})
 	        .otherwise('/');
 	       
 	     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 	     $httpProvider.interceptors.push('jwtInterceptor');
 	     $httpProvider.interceptors.push('authHttpResponseInterceptor');
+	     
+	     
 	  
+});
+
+app.config(function($mdThemingProvider) {
+	  $mdThemingProvider.theme('dark-blue').backgroundPalette('blue').dark();
+	  $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+	  $mdThemingProvider.theme('dark-orange').backgroundPalette('orange').dark();
+	  $mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
 });

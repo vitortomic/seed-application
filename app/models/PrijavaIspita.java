@@ -3,32 +3,33 @@
  */
 package models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author Vitor 2
  *
  */
 @Entity
-public class Katedra {
+public class PrijavaIspita {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	public Long id;
 	
-	public String naziv;
+	@ManyToOne
+	public IspitniRok ispit;
 	
-	@OneToMany(fetch=FetchType.LAZY)
-	public List<Ispit> ispiti;
+	@ManyToOne
+	public User profesor;
 	
-	@ManyToMany
-	public List<User> profesori;
+	@ManyToOne
+	public Student student;
+	
+	public Integer ocena;
 }

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import enums.TipKorisnika;
 
@@ -37,7 +38,10 @@ public class User {
 	public AuthUser authUser;
 	
 	public String accessCode;
-
+	
+	@Transient
+	public Double prosek;
+	
 	public User(String firstName, String lastName, String email, String type) {
 		this.firstName = firstName;
 		this.lastName = lastName;

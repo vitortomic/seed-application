@@ -34,3 +34,7 @@ POST	/logout						controllers.AuthController.logout()
 
 #users
 GET     /users						controllers.UserController.getAllUsers()
+
+#prijave
+GET		/prijave					controllers.PrijavaIspitaController.vratiPrijave()
+PUT		/update-prijavu				controllers.PrijavaIspitaController.updejtujPrijavu()
