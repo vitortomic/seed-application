@@ -1,4 +1,5 @@
 app.controller('prijaveCtrl', function($scope, prijaveService, $mdDialog){
+	
 	prijaveService.listPrijave().then((prijave) => {
 		$scope.prijave = prijave;
 	});
